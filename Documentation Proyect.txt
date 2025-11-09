@@ -1,0 +1,41 @@
+Proyecto: Bolas con Ojos que Reaccionan al Mouse
+
+Descripción
+Este proyecto es una página web interactiva donde se muestran muchas bolas de colores. Cuando mueves el mouse cerca de ellas, las bolas "abren los ojos" como si estuvieran mirando la luz. Es una forma divertida de aprender cómo HTML, CSS y JavaScript trabajan juntos.
+
+Archivos del Proyecto
+
+1. index.html
+Este archivo es como el esqueleto de la página. Aquí se colocan las partes principales:
+
+- `<div class="baseLight">` → Simula una luz que sigue al mouse.
+- `<div class="shadows">` → Aquí se colocan las sombras de las bolas.
+- `<div class="balls">` → Aquí se colocan las bolas con ojos.
+- Se conecta con los archivos `style.css` y `script.js` para que la página tenga estilo y se mueva.
+
+2. style.css
+Este archivo es como la ropa y maquillaje de la página. Le da color, forma y animación a las bolas.
+
+- `body` → Pone el fondo oscuro.
+- `.ball` → Crea bolas redondas con colores y ojos.
+- `.ball::before` y `.ball::after` → Son los dos ojitos que se abren cuando el mouse se acerca.
+- `.shadow` → Crea una sombra detrás de cada bola.
+- Usa variables como `-->ball-size` para controlar el tamaño de las bolas.
+
+3. script.js
+Este archivo es el cerebro de la página. Le dice a las bolas qué hacer cuando el mouse se mueve.
+
+- Crea muchas bolas en forma de cuadrícula.
+- Detecta la posición del mouse.
+- Calcula qué tan cerca está el mouse de cada bola.
+- Si el mouse está cerca, la bola abre los ojos y se mueve un poquito.
+- También mueve la luz (`baseLight`) para que siga al mouse.
+
+Cómo Funciona Paso a Paso
+
+1. **Se carga la página** → El navegador lee `index.html`.
+2. **Se aplican los estilos** → `style.css` hace que todo se vea bonito.
+3. **Se ejecuta el JavaScript** → `script.js` crea las bolas y escucha el movimiento del mouse.
+4. **Mueves el mouse** → La luz se mueve y las bolas cercanas reaccionan.
+5. **Las bolas abren los ojos** → Gracias a las transformaciones en CSS, los ojitos se agrandan.
+
