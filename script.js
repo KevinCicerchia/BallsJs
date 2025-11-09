@@ -3,11 +3,11 @@ const width = window.innerWidth;
 let BALLSIZE;
 
 if (width < 600) {
-  BALLSIZE = 40; // Mobile
+  BALLSIZE = 24; // Mobile
 } else if (width < 1024) {
   BALLSIZE = 36; // Tablet
 } else {
-  BALLSIZE = 24; // Desktop
+  BALLSIZE = 36; // Desktop
 }
 
 const IMPECTRADIUS = BALLSIZE * 5;
