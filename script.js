@@ -1,5 +1,5 @@
-const BALLSIZE = 42;
-const IMPECTRADIUS = 210;
+const BALLSIZE = Math.max(30, window.innerWidth / 20); // Tamaño dinámico según pantalla
+const IMPECTRADIUS = BALLSIZE * 5;
 
 const balls = [];
 const ballsDiv = document.querySelector('.balls');
@@ -37,10 +37,7 @@ function createBall(x, y) {
   balls.push(ball);
 }
 
-window.addEventListener('mousemove', (e) => {
-  const mx = e.clientX - (window.innerWidth / 2);
-  const my = e.clientY - (window.innerHeight / 2);
-
+function updateLight(mx, my) {
   baseLight.style.transform = `translate(${mx}px, ${my}px)`;
 
   balls.forEach((ball) => {
@@ -62,4 +59,21 @@ window.addEventListener('mousemove', (e) => {
       ball.shadow.style.setProperty('--dist-factor', 0);
     }
   });
+}
+
+// Mouse
+window.addEventListener('mousemove', (e) => {
+  const mx = e.clientX - (window.innerWidth / 2);
+  const my = e.clientY - (window.innerHeight / 2);
+  updateLight(mx, my);
+});
+
+// Pantalla táctil
+window.addEventListener('touchmove', (e) => {
+  if (e.touches.length > 0) {
+    const touch = e.touches[0];
+    const mx = touch.clientX - (window.innerWidth / 2);
+    const my = touch.clientY - (window.innerHeight / 2);
+    updateLight(mx, my);
+  }
 });
