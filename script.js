@@ -1,4 +1,15 @@
-const BALLSIZE = Math.max(30, window.innerWidth / 20); // Tamaño dinámico según pantalla
+
+const width = window.innerWidth;
+let BALLSIZE;
+
+if (width < 600) {
+  BALLSIZE = 40; // Mobile
+} else if (width < 1024) {
+  BALLSIZE = 36; // Tablet
+} else {
+  BALLSIZE = 24; // Desktop
+}
+
 const IMPECTRADIUS = BALLSIZE * 5;
 
 const balls = [];
@@ -61,14 +72,14 @@ function updateLight(mx, my) {
   });
 }
 
-// Mouse
+// Mouse support
 window.addEventListener('mousemove', (e) => {
   const mx = e.clientX - (window.innerWidth / 2);
   const my = e.clientY - (window.innerHeight / 2);
   updateLight(mx, my);
 });
 
-// Pantalla táctil
+// Touch support
 window.addEventListener('touchmove', (e) => {
   if (e.touches.length > 0) {
     const touch = e.touches[0];
